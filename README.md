@@ -14,3 +14,8 @@ All Class and Domain Models for the assignment
 Java Eclipse Project for the assignment
 Plugins:
 	- Umple Plugin : http://cruise.eecs.uottawa.ca/umple/
+
+### Known Bugs
+-
+-
+-
