@@ -1,0 +1,18 @@
+<manager id="1">
+  <registrations id="2"/>
+  <participants id="3">
+    <participant id="4">
+      <name>Yaniv</name>
+    </participant>
+    <participant id="5">
+      <name>Yaniv Bronshtein</name>
+    </participant>
+    <participant id="6">
+      <name>Brosky</name>
+    </participant>
+    <participant id="7">
+      <name>Yaniv Bronshtein</name>
+    </participant>
+  </participants>
+  <events id="8"/>
+</manager>

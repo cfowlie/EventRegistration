@@ -1,0 +1,28 @@
+namespace ca.mcgill.ecse321.eventregistration.model;
+
+class Participant
+{
+  name;
+}
+
+class Event
+{
+  name;
+  Date eventDate;
+  Time startTime;
+  Time endTime;
+}
+
+class Registration
+{
+  autounique id;
+  * -> 1 Participant participant;
+  * -> 1 Event event;
+}
+
+class RegistrationManager
+{
+  1 -> * Registration registrations;
+  1 -> * Participant participants;
+  1 -> * Event events;
+}
