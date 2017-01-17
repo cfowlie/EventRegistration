@@ -12,8 +12,10 @@ All Class and Domain Models for the assignment
 
 ### EventRegistation
 Java Eclipse Project for the assignment
-Plugins:
+
+### Plugins:
 - Umple Plugin : http://cruise.eecs.uottawa.ca/umple/
+- Junit : http://junit.org/junit4/
 
 ### Known Bugs
 - Unclear in tutorial section 1.6.3: In Step 2, Prof. refers to ParticipantPage class, but actually means EventRegistrationPage class
