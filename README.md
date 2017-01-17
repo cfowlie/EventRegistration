@@ -16,6 +16,6 @@ Plugins:
 	- Umple Plugin : http://cruise.eecs.uottawa.ca/umple/
 
 ### Known Bugs
--
--
+- Unclear in tutorial section 1.6.3: In Step 2, Prof. refers to ParticipantPage class, but actually means EventRegistrationPage class
+-1.6.3 (Cont'd): In initComponents() method 1.6.3, you need to replace just code for layout.setHorizontalGroup() and layout.setVerticalGroup()
 -
