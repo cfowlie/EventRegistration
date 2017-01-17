@@ -16,6 +16,15 @@ Java Eclipse Project for the assignment
 ### Plugins:
 - Umple Plugin : http://cruise.eecs.uottawa.ca/umple/
 - Junit : http://junit.org/junit4/
+- Libraries : 
+	- xstream-1.4.7.jar
+	- xmlpull-1.1.3.1.jar
+	- xpp3_min-1.1.4c.jar
+	- jdatepicker-1.3.4.jar
+
+### Setup:
+	- Add the JUnit 4 library to your build path. Right click on the project and Build Path | Add libraries…​, select JUnit and click Next and then Finish.
+	- Add the JAR files from the lib folder to the build path of the project. Right click on the three files and Build path | Add to build path
 
 ### Known Bugs
 - Unclear in tutorial section 1.6.3: In Step 2, Prof. refers to ParticipantPage class, but actually means EventRegistrationPage class
