@@ -25,6 +25,26 @@ public class EventRegistrationPage extends JFrame {
 	private String error = null;
 	private JLabel errorMessage;
 	
+	// UI elements
+	private JLabel errorMessage;
+	private JComboBox<String> participantList;
+	private JLabel participantLabel;
+	private JComboBox<String> eventList;
+	private JLabel eventLabel;
+	private JButton registerButton;
+	private JTextField participantNameTextField;
+	private JLabel participantNameLabel;
+	private JButton addParticipantButton;
+	private JTextField eventNameTextField;
+	private JLabel eventNameLabel;
+	private JDatePickerImpl eventDatePicker;
+	private JLabel eventDateLabel;
+	private JSpinner startTimeSpinner;
+	private JLabel startTimeLabel;
+	private JSpinner endTimeSpinner;
+	private JLabel endTimeLabel;
+	private JButton addEventButton;
+	
 	/** Creates new form EventRegistrationPage */
 	public EventRegistrationPage(RegistrationManager rm) {
 	    this.rm = rm;
@@ -91,10 +111,22 @@ public class EventRegistrationPage extends JFrame {
 	}
 	
 	private void refreshData() {
-	    participantNameTextField.setText("");
+	    /* 
+	     * ***Old Code
+		participantNameTextField.setText("");
 	    pack();
+	    */
+		// error
+	    errorMessage.setText(error);
+	    if (error == null || error.length() == 0) {
+	        // participant
+	        participantNameTextField.setText("");
+	    }
+	 // this is needed because the size of the window changes depending on whether an error message is shown or not
+	    pack();
+
 	}
-	
+	/* Old code
 	private void addParticipantButtonActionPerformed() {
 		// create and call the controller
 		EventRegistrationController erc = new EventRegistrationController(rm);
@@ -104,6 +136,21 @@ public class EventRegistrationPage extends JFrame {
 		    // At that point, we ignore the exception
 		}
 		refreshData();
-		}
+	}
+	*/
+	
+	private void addParticipantButtonActionPerformed() {
+	    // call the controller
+	    EventRegistrationController erc = new EventRegistrationController(rm);
+	    error = null;
+	    try {
+	        erc.createParticipant(participantNameTextField.getText());
+	    } catch (InvalidInputException e) {
+	        error = e.getMessage();
+	    }
+	    // update visuals
+	    refreshData();
+	}
+	
 
 }
