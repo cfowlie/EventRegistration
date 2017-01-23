@@ -3,6 +3,8 @@ package ca.mcgill.ecse321.eventregistration.view;
 import javax.swing.JFrame;
 
 import java.awt.Color;
+import java.util.Date;
+import java.util.Properties;
 
 import javax.swing.GroupLayout;
 import javax.swing.JButton;
@@ -18,9 +20,9 @@ import org.jdatepicker.impl.JDatePanelImpl;
 import org.jdatepicker.impl.JDatePickerImpl;
 import org.jdatepicker.impl.SqlDateModel;
 
-import com.sun.xml.internal.fastinfoset.sax.Properties;
-
 import ca.mcgill.ecse321.eventregistration.model.Participant;
+import ca.mcgill.ecse321.eventregistration.model.Event;
+import ca.mcgill.ecse321.eventregistration.model.Registration;
 import ca.mcgill.ecse321.eventregistration.model.RegistrationManager;
 
 public class EventRegistrationPage extends JFrame {
@@ -72,7 +74,7 @@ public class EventRegistrationPage extends JFrame {
 
 		SqlDateModel model = new SqlDateModel();
 		Properties p = new Properties();
-		((Object) p).put("text.today", "Today");
+		p.put("text.today", "Today");
 		p.put("text.month", "Month");
 		p.put("text.year", "Year");
 		JDatePanelImpl datePanel = new JDatePanelImpl(model, p);
