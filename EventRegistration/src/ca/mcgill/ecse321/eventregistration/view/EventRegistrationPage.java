@@ -3,6 +3,8 @@ package ca.mcgill.ecse321.eventregistration.view;
 import javax.swing.JFrame;
 
 import java.awt.Color;
+import java.sql.Time;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.Properties;
 
@@ -21,6 +23,8 @@ import org.jdatepicker.impl.JDatePickerImpl;
 import org.jdatepicker.impl.SqlDateModel;
 
 import ca.mcgill.ecse321.eventregistration.model.Participant;
+import ca.mcgill.ecse321.eventregistration.controller.EventRegistrationController;
+import ca.mcgill.ecse321.eventregistration.controller.InvalidInputException;
 import ca.mcgill.ecse321.eventregistration.model.Event;
 import ca.mcgill.ecse321.eventregistration.model.Registration;
 import ca.mcgill.ecse321.eventregistration.model.RegistrationManager;
@@ -51,6 +55,12 @@ public class EventRegistrationPage extends JFrame {
 	private String error = null;
 	private Integer selectedParticipant = -1;
 	private Integer selectedEvent = -1;
+	
+	public EventRegistrationPage(RegistrationManager aRegMan) {
+	    rm = aRegMan;
+	    initComponents();
+	    refreshData();
+	}
 	private void initComponents() {
 		// elements for error message
 		errorMessage = new JLabel();
@@ -108,6 +118,35 @@ public class EventRegistrationPage extends JFrame {
 		endTimeLabel.setText("End time:");
 		addEventButton.setText("Add Event");
 
+		// INSERT THIS CODE TO THE EXISTING METHOD
+	    participantList.addActionListener(new java.awt.event.ActionListener() {
+	        public void actionPerformed(java.awt.event.ActionEvent evt) {
+	            JComboBox<String> cb = (JComboBox<String>) evt.getSource();
+	            selectedParticipant = cb.getSelectedIndex();
+	        }
+	    });
+	    eventList.addActionListener(new java.awt.event.ActionListener() {
+	        public void actionPerformed(java.awt.event.ActionEvent evt) {
+	            JComboBox<String> cb = (JComboBox<String>) evt.getSource();
+	            selectedEvent = cb.getSelectedIndex();
+	        }
+	    });
+	    registerButton.addActionListener(new java.awt.event.ActionListener() {
+	        public void actionPerformed(java.awt.event.ActionEvent evt) {
+	            registerButtonActionPerformed();
+	        }
+	    });
+	    addParticipantButton.addActionListener(new java.awt.event.ActionListener() {
+	        public void actionPerformed(java.awt.event.ActionEvent evt) {
+	            addParticipantButtonActionPerformed();
+	        }
+
+	    });
+	    addEventButton.addActionListener(new java.awt.event.ActionListener() {
+	        public void actionPerformed(java.awt.event.ActionEvent evt) {
+	            addEventButtonActionPerformed();
+	        }
+	    });
 		// layout
 		GroupLayout layout = new GroupLayout(getContentPane());
 		getContentPane().setLayout(layout);
@@ -204,5 +243,60 @@ public class EventRegistrationPage extends JFrame {
 
 	    // this is needed because the size of the window changes depending on whether an error message is shown or not
 	    pack();
+	}
+	
+	private void addParticipantButtonActionPerformed() {
+	    // call the controller
+	    EventRegistrationController erc = new EventRegistrationController(rm);
+	    error = null;
+	    try {
+	        erc.createParticipant(participantNameTextField.getText());
+	    } catch (InvalidInputException e) {
+	        error = e.getMessage();
+	    }
+	    // update visuals
+	    refreshData();
+	}
+
+	private void addEventButtonActionPerformed() {
+	    // call the controller
+	    EventRegistrationController erc = new EventRegistrationController(rm);
+	    // JSpinner actually returns a date and time
+	    // force the same date for start and end time to ensure that only the times differ
+	    Calendar calendar = Calendar.getInstance();
+	    calendar.setTime((Date) startTimeSpinner.getValue());
+	    calendar.set(2000, 1, 1);
+	    Time startTime = new Time(calendar.getTime().getTime());
+	    calendar.setTime((Date) endTimeSpinner.getValue());
+	    calendar.set(2000, 1, 1);
+	    Time endTime = new Time(calendar.getTime().getTime());
+	    error = null;
+	    try {
+	        erc.createEvent(eventNameTextField.getText(), (java.sql.Date) eventDatePicker.getModel().getValue(), startTime, endTime);
+	    } catch (InvalidInputException e) {
+	        error = e.getMessage();
+	    }
+	    // update visuals
+	    refreshData();
+	}
+
+	private void registerButtonActionPerformed() {
+	    error = "";
+	    if (selectedParticipant < 0)
+	        error = error + "Participant needs to be selected for registration! ";
+	    if (selectedEvent < 0)
+	        error = error + "Event needs to be selected for registration!";
+	    error = error.trim();
+	    if (error.length() == 0) {
+	        // call the controller
+	        EventRegistrationController erc = new EventRegistrationController(rm);
+	        try {
+	            erc.register(rm.getParticipant(selectedParticipant), rm.getEvent(selectedEvent));
+	        } catch (InvalidInputException e) {
+	            error = e.getMessage();
+	        }
+	    }
+	    // update visuals
+	    refreshData();
 	}
 }

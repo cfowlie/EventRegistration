@@ -16,6 +16,19 @@
     <participant id="8">
       <name>Yaniv Bronshtein</name>
     </participant>
+    <participant id="9">
+      <name>Yaniv Bronshtein</name>
+    </participant>
+    <participant id="10">
+      <name>Yaniv</name>
+    </participant>
   </participants>
-  <events id="9"/>
+  <events id="11">
+    <event id="12">
+      <name>Crash</name>
+      <eventDate id="13">2017-01-22</eventDate>
+      <startTime id="14">09:48:54</startTime>
+      <endTime id="15">09:48:54</endTime>
+    </event>
+  </events>
 </manager>
