@@ -13,6 +13,9 @@ All Class and Domain Models for the assignment
 ### EventRegistation
 Java Eclipse Project for the assignment
 
+### EventRegistration_Android
+Android project for event registration application
+
 ### Plugins:
 - Umple Plugin : http://cruise.eecs.uottawa.ca/umple/
 - Junit : http://junit.org/junit4/
