@@ -1,34 +1,43 @@
 <manager id="1">
-  <registrations id="2"/>
-  <participants id="3">
-    <participant id="4">
-      <name>Yaniv</name>
-    </participant>
-    <participant id="5">
-      <name>Yaniv Bronshtein</name>
-    </participant>
-    <participant id="6">
-      <name>Brosky</name>
-    </participant>
-    <participant id="7">
-      <name>Yaniv Bronshtein</name>
-    </participant>
-    <participant id="8">
-      <name>Yaniv Bronshtein</name>
-    </participant>
-    <participant id="9">
-      <name>Yaniv Bronshtein</name>
-    </participant>
+  <registrations id="2">
+    <registration id="3">
+      <id>1</id>
+      <participant id="4">
+        <name>Connor Fowlie</name>
+      </participant>
+      <event id="5">
+        <name>Crash</name>
+        <eventDate id="6">2017-01-22</eventDate>
+        <startTime id="7">09:48:54</startTime>
+        <endTime id="8">09:48:54</endTime>
+      </event>
+    </registration>
+  </registrations>
+  <participants id="9">
     <participant id="10">
       <name>Yaniv</name>
     </participant>
+    <participant id="11">
+      <name>Yaniv Bronshtein</name>
+    </participant>
+    <participant id="12">
+      <name>Brosky</name>
+    </participant>
+    <participant id="13">
+      <name>Yaniv Bronshtein</name>
+    </participant>
+    <participant id="14">
+      <name>Yaniv Bronshtein</name>
+    </participant>
+    <participant id="15">
+      <name>Yaniv Bronshtein</name>
+    </participant>
+    <participant id="16">
+      <name>Yaniv</name>
+    </participant>
+    <participant reference="4"/>
   </participants>
-  <events id="11">
-    <event id="12">
-      <name>Crash</name>
-      <eventDate id="13">2017-01-22</eventDate>
-      <startTime id="14">09:48:54</startTime>
-      <endTime id="15">09:48:54</endTime>
-    </event>
+  <events id="17">
+    <event reference="5"/>
   </events>
 </manager>
