@@ -338,6 +338,31 @@ public class TestEventRegistrationController {
 		  assertEquals(0, rm.getEvents().size());
 	}
 	
+	@Test
+	public void testCreateEventNull() {
+	  assertEquals(0, rm.getRegistrations().size());
+
+	  String name = null;
+	  Date eventDate = null;
+	  Time startTime = null;
+	  Time endTime = null;
+
+	  String error = null;
+	  EventRegistrationController erc = new EventRegistrationController(rm);
+	  try {
+	      erc.createEvent(name, eventDate, startTime, endTime);
+	  } catch (InvalidInputException e) {
+	      error = e.getMessage();
+	  }
+
+	  // check error
+	  assertEquals(
+	          "Event name cannot be empty! Event date cannot be empty! Event start time cannot be empty! Event end time cannot be empty!",
+	          error);
+	  // check model in memory
+	  assertEquals(0, rm.getEvents().size());
+	}
+	
 	
 
 

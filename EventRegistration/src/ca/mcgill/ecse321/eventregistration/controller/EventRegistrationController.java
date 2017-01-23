@@ -18,29 +18,9 @@ public class EventRegistrationController {
 	}
 
 	public void createParticipant(String name) throws InvalidInputException {
-		/*
-		 * ****************OLD CODE********************
-		Participant p = new Participant(name);
-		// RegistrationManager rm = new RegistrationManager(); //Didn't work
-		// because overriding link
-		// from constructor
-		rm.addParticipant(p);
-		PersistenceXStream.saveToXMLwithXStream(rm);
-	*/
-		/* ROUND 2 CODE
-		if (name == null) {
-			throw new InvalidInputException("Participant name cannot be empty!");
+		if (name == null || name.trim().length() == 0) {
+			throw new InvalidInputException("Participant name cannot be empty!");		  
 		}
-		Participant p = new Participant(name);
-		rm.addParticipant(p);
-		PersistenceXStream.saveToXMLwithXStream(rm);	
-	*/
-	
-		
-		
-	if (name == null || name.trim().length() == 0) {
-	    throw new InvalidInputException("Participant name cannot be empty!");		  
-	}
 		Participant p = new Participant(name);
 		rm.addParticipant(p);
 		PersistenceXStream.saveToXMLwithXStream(rm);
