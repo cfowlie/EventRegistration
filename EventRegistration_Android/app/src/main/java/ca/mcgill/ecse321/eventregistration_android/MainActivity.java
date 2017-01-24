@@ -19,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
     private RegistrationManager rm = null;
     private String fileName;
     String error = null;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,15 +35,6 @@ public class MainActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
-
-
-        /*
-        ***SEEMS REDUNDANT ***
-
-        // Example of a call to a native method
-    TextView tv = (TextView) findViewById(R.id.sample_text);
-    tv.setText(stringFromJNI());
-          */
 
         // INSERT TO END OF THE METHOD
         // Initialize file name and XStream

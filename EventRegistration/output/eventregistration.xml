@@ -12,19 +12,21 @@
         <endTime id="8">09:48:54</endTime>
       </event>
     </registration>
+    <registration id="9">
+      <id>1</id>
+      <participant reference="4"/>
+      <event reference="5"/>
+    </registration>
   </registrations>
-  <participants id="9">
-    <participant id="10">
+  <participants id="10">
+    <participant id="11">
       <name>Yaniv</name>
     </participant>
-    <participant id="11">
-      <name>Yaniv Bronshtein</name>
-    </participant>
     <participant id="12">
-      <name>Brosky</name>
+      <name>Yaniv Bronshtein</name>
     </participant>
     <participant id="13">
-      <name>Yaniv Bronshtein</name>
+      <name>Brosky</name>
     </participant>
     <participant id="14">
       <name>Yaniv Bronshtein</name>
@@ -33,11 +35,14 @@
       <name>Yaniv Bronshtein</name>
     </participant>
     <participant id="16">
+      <name>Yaniv Bronshtein</name>
+    </participant>
+    <participant id="17">
       <name>Yaniv</name>
     </participant>
     <participant reference="4"/>
   </participants>
-  <events id="17">
+  <events id="18">
     <event reference="5"/>
   </events>
 </manager>

@@ -5,6 +5,7 @@ android {
     buildToolsVersion "25.0.2"
     defaultConfig {
         applicationId "ca.mcgill.ecse321.eventregistration_android"
+        multiDexEnabled true
         minSdkVersion 15
         targetSdkVersion 25
         versionCode 1

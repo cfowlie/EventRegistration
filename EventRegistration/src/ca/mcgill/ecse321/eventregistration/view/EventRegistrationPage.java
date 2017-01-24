@@ -17,6 +17,7 @@ import javax.swing.JTextField;
 import javax.swing.SpinnerDateModel;
 import javax.swing.SwingConstants;
 import javax.swing.WindowConstants;
+import javax.swing.text.DateFormatter;
 
 import org.jdatepicker.impl.JDatePanelImpl;
 import org.jdatepicker.impl.JDatePickerImpl;
@@ -88,7 +89,7 @@ public class EventRegistrationPage extends JFrame {
 		p.put("text.month", "Month");
 		p.put("text.year", "Year");
 		JDatePanelImpl datePanel = new JDatePanelImpl(model, p);
-		eventDatePicker = new JDatePickerImpl(datePanel, new DateLabelFormatter());
+		eventDatePicker = new JDatePickerImpl(datePanel, new DateFormatter());
 
 		eventDateLabel = new JLabel();
 		startTimeSpinner = new JSpinner( new SpinnerDateModel() );
