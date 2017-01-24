@@ -29,5 +29,7 @@ Android Project for event registration application
 - Add the JUnit 4 library to your build path. Right click on the project and Build Path | Add libraries…​, select JUnit and click Next and then Finish.
 - Add the JAR files from the lib folder to the build path of the project. Right click on the three files and Build path | Add to build path
 
-### Known Bugs
--In 2.7 Step 8 application does not run on Target. Tried following error messages.
+### Known Bugs:
+
+### Tutorial Notes:
+- In 2.7 Step 8 application does not run on Target. Tried following error messages.
