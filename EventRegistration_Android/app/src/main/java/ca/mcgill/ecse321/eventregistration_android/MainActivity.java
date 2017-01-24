@@ -10,8 +10,15 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 
-public class MainActivity extends AppCompatActivity {
+import ca.mcgill.ecse321.eventregistration.controller.EventRegistrationController;
+import ca.mcgill.ecse321.eventregistration.model.RegistrationManager;
+import ca.mcgill.ecse321.eventregistration.persistence.PersistenceXStream;
+import ca.mcgill.ecse321.eventregistration.controller.InvalidInputException;
 
+public class MainActivity extends AppCompatActivity {
+    private RegistrationManager rm = null;
+    private String fileName;
+    String error = null;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,18 +35,46 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-    // Example of a call to a native method
+
+        /*
+        ***SEEMS REDUNDANT ***
+
+        // Example of a call to a native method
     TextView tv = (TextView) findViewById(R.id.sample_text);
     tv.setText(stringFromJNI());
+          */
+
+        // INSERT TO END OF THE METHOD
+        // Initialize file name and XStream
+        fileName = getFilesDir().getAbsolutePath() + "/eventregistration.xml";
+        rm = PersistenceXStream.initializeModelManager(fileName);
+        refreshData();
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
+    private void refreshData() {
+        TextView tv = (TextView) findViewById(R.id.newparticipant_name);
+        tv.setText("");
     }
 
+    public void addParticipant(View v) {
+
+        TextView tv = (TextView) findViewById(R.id.newparticipant_name);
+
+        EventRegistrationController pc = new EventRegistrationController(rm);
+
+        try {
+
+            pc.createParticipant(tv.getText().toString());
+
+        } catch (InvalidInputException e) {
+
+            error = e.getMessage();
+
+        }
+
+        refreshData();
+
+    }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will

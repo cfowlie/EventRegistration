@@ -14,9 +14,22 @@
     tools:showIn="@layout/activity_main"
     tools:context="ca.mcgill.ecse321.eventregistration_android.MainActivity">
 
-    <TextView
-        android:id="@+id/sample_text"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hello World!" />
+        android:orientation="vertical">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/newparticipant_name"
+            android:hint="@string/newparticipant_hint"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:text="@string/newparticipant_button"
+            android:onClick="addParticipant"/>
+    </LinearLayout>
 </RelativeLayout>
