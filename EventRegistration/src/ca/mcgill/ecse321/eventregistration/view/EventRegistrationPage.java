@@ -27,7 +27,6 @@ import ca.mcgill.ecse321.eventregistration.model.Participant;
 import ca.mcgill.ecse321.eventregistration.controller.EventRegistrationController;
 import ca.mcgill.ecse321.eventregistration.controller.InvalidInputException;
 import ca.mcgill.ecse321.eventregistration.model.Event;
-import ca.mcgill.ecse321.eventregistration.model.Registration;
 import ca.mcgill.ecse321.eventregistration.model.RegistrationManager;
 
 public class EventRegistrationPage extends JFrame {
@@ -90,7 +89,6 @@ public class EventRegistrationPage extends JFrame {
 		p.put("text.year", "Year");
 		JDatePanelImpl datePanel = new JDatePanelImpl(model, p);
 		eventDatePicker = new JDatePickerImpl(datePanel, new DateFormatter());
-
 		eventDateLabel = new JLabel();
 		startTimeSpinner = new JSpinner( new SpinnerDateModel() );
 		JSpinner.DateEditor startTimeEditor = new JSpinner.DateEditor(startTimeSpinner, "HH:mm");
