@@ -30,4 +30,4 @@ Android Project for event registration application
 - Add the JAR files from the lib folder to the build path of the project. Right click on the three files and Build path | Add to build path
 
 ### Known Bugs
-
+-In 2.7 Step 8 application does not run on Target. Tried following error messages.
