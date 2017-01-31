@@ -13,8 +13,6 @@
     tools:context="ca.mcgill.ecse321.eventregistration_android.MainActivity"
     tools:showIn="@layout/activity_main">
 
-    <!-- Includes register button -->!
-
     <View
         android:layout_width="fill_parent"
         android:layout_height="2dp"
@@ -55,49 +53,67 @@
             android:text="@string/newparticipant_button" />
 
         <!-- "Date"   -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/newevent_date_label" />
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-        <TextView
-            android:id="@+id/newevent_startTime"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="end"
-            android:onClick="showTimePickerDialog"
-            android:text="@string/newevent_date_first" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/newevent_date_label" />
+
+            <TextView
+                android:id="@+id/newevent_startTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:onClick="showTimePickerDialog"
+                android:text="@string/newevent_date_first" />
+        </LinearLayout>
 
         <!-- "Start Time"   -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Start time?" />
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/newevent_date"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="end"
-            android:onClick="showDatePickerDialog"
-            android:text="@string/newevent_date_first" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Start time?" />
+
+            <TextView
+                android:id="@+id/newevent_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:onClick="showDatePickerDialog"
+                android:text="@string/newevent_date_first" />
+        </LinearLayout>
 
         <!-- "End Time"   -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="End Time" />
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/newevent_date"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="end"
-            android:onClick="showDatePickerDialog"
-            android:text="@string/newevent_date_first" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="End Time?" />
+
+            <TextView
+                android:id="@+id/newevent_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:onClick="showDatePickerDialog"
+                android:text="@string/newevent_date_first" />
+        </LinearLayout>
 
         <!-- "Add Event Button"   -->
         <!-- TODO: "ADD EVENT" button here   -->
