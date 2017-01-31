@@ -45,6 +45,16 @@ public class MainActivity extends AppCompatActivity {
     private void refreshData() {
         TextView tv = (TextView) findViewById(R.id.newparticipant_name);
         tv.setText("");
+        // Initialize the data in the participant spinner
+        Spinner spinner = (Spinner) findViewById(R.id.participantspinner);
+        ArrayAdapter<CharSequence> participantAdapter = new ArrayAdapter<CharSequence>(this, android.R.layout.simple_spinner_item);
+        participantAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+        for (Participant p: rm.getParticipants() ) {
+            participantAdapter.add(p.getName());
+        }
+        spinner.setAdapter(participantAdapter);
+
     }
 
     public void addParticipant(View v) {
@@ -91,4 +101,63 @@ public class MainActivity extends AppCompatActivity {
     static {
         System.loadLibrary("native-lib");
     }
+
+    public void showDatePickerDialog(View v) {
+        TextView tf = (TextView) v;
+        Bundle args = getDateFromLabel(tf.getText());
+        args.putInt("id", v.getId());
+
+        DatePickerFragment newFragment = new DatePickerFragment();
+        newFragment.setArguments(args);
+        newFragment.show(getSupportFragmentManager(), "datePicker");
+    }
+
+    private Bundle getTimeFromLabel(CharSequence text) {
+        Bundle rtn = new Bundle();
+        String comps[] = text.toString().split(":");
+        int hour = 12;
+        int minute = 0;
+
+        if (comps.length == 2) {
+            hour = Integer.parseInt(comps[0]);
+            minute = Integer.parseInt(comps[1]);
+        }
+
+        rtn.putInt("hour", hour);
+        rtn.putInt("minute", minute);
+
+        return rtn;
+    }
+
+    private Bundle getDateFromLabel(CharSequence text) {
+        Bundle rtn = new Bundle();
+        String comps[] = text.toString().split("-");
+        int day = 1;
+        int month = 1;
+        int year = 1;
+
+        if (comps.length == 3) {
+            day = Integer.parseInt(comps[0]);
+            month = Integer.parseInt(comps[1]);
+            year = Integer.parseInt(comps[2]);
+        }
+
+        rtn.putInt("day", day);
+        rtn.putInt("month", month-1);
+        rtn.putInt("year", year);
+
+        return rtn;
+    }
+
+    public void setTime(int id, int h, int m) {
+        TextView tv = (TextView) findViewById(id);
+        tv.setText(String.format("%02d:%02d", h, m));
+    }
+
+    public void setDate(int id, int d, int m, int y) {
+        TextView tv = (TextView) findViewById(id);
+        tv.setText(String.format("%02d-%02d-%04d", d, m + 1, y));
+    }
+
+
 }

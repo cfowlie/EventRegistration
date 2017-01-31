@@ -24,11 +24,50 @@
         android:orientation="vertical">
 
         <!-- "Event"   -->
-        <EditText
-            android:id="@+id/newregister_name_name"
-            android:layout_width="match_parent"
+
+        <!-- Participant Spinner-->
+        <LinearLayout
+            android:orientation="horizontal"
             android:layout_height="wrap_content"
-            android:hint="@string/newregister_hint" />
+            android:layout_width="match_parent">
+
+            <TextView
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:text="@string/participantspinner_label"/>
+
+            <Spinner
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:layout_gravity="end"
+                android:id="@+id/participantspinner"/>
+
+        </LinearLayout>
+
+        <!-- Event Spinner-->
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent">
+
+            <TextView
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:text="@string/eventspinner_label"/>
+
+            <Spinner
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:layout_gravity="end"
+                android:id="@+id/eventspinner"/>
+
+        </LinearLayout>
+
+        <!--<EditText-->
+            <!--android:id="@+id/newregister_name_name"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:hint="@string/newregister_hint" />-->
 
         <Button
             android:layout_width="wrap_content"
@@ -116,9 +155,16 @@
         </LinearLayout>
 
         <!-- "Add Event Button"   -->
-        <!-- TODO: "ADD EVENT" button here   -->
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:onClick="addEvent"
+            android:text="@string/newevent_button" />
+
 
     </LinearLayout>
+
 
 </RelativeLayout>
 

@@ -8,7 +8,9 @@
     <string name="newevent_date_label">Date?</string>
     <string name="newevent_start_time_label">Start time?</string>
     <string name="newevent_end_time_label">End time?</string>
-    <string name="newregister_hint">Event?</string>
+    <string name="newevent_button">Add Event</string>
+    <string name="participantspinner_label">Participant?</string>
+    <string name="eventspinner_label">Event?</string>
 
 
 </resources>
