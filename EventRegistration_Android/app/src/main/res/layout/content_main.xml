@@ -1,134 +1,108 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/content_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:showIn="@layout/activity_main"
-    tools:context="ca.mcgill.ecse321.eventregistration_android.MainActivity">
+    tools:context="ca.mcgill.ecse321.eventregistration_android.MainActivity"
+    tools:showIn="@layout/activity_main">
 
     <!-- Includes register button -->!
+
     <View
-        android:layout_height="2dp"
         android:layout_width="fill_parent"
-        android:background="#FFFFFF"/>
+        android:layout_height="2dp"
+        android:background="#FFFFFF" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
+        <!-- "Event"   -->
         <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:id="@+id/newregister_name_name"
-            android:hint="@string/newparticipant_hint"/>
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="end"
-            android:text="@string/newregister_button"
-            android:onClick="Register"/>
-    </LinearLayout>
-
-    <!-- This is for "Who?" section, includes "Add Participant" -->!
-
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-
-        <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/newparticipant_name"
-            android:hint="@string/newparticipant_hint"/>
+            android:hint="@string/newregister_hint" />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="end"
-            android:text="@string/newparticipant_button"
-            android:onClick="addParticipant"/>
-    </LinearLayout>
+            android:onClick="Register"
+            android:text="@string/newregister_button" />
 
-    <!-- This is for "Event name?" section, includes "Date?" "Start time?" "End time and
-    "Add event" button -->!
 
-    <!-- "Date?"   -->
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_height="wrap_content"
-        android:layout_width="match_parent">
-
-        <TextView
+        <!-- "Who"   -->
+        <EditText
+            android:id="@+id/newparticipant_name"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/newevent_date_label"/>
+            android:hint="@string/newparticipant_hint" />
 
-        <TextView
-            android:layout_height="wrap_content"
+        <Button
             android:layout_width="wrap_content"
-            android:text="@string/newevent_date_first"
+            android:layout_height="wrap_content"
             android:layout_gravity="end"
-            android:id="@+id/newevent_date"
-            android:onClick="showDatePickerDialog"/>
+            android:onClick="addParticipant"
+            android:text="@string/newparticipant_button" />
 
-    </LinearLayout>
-
-    <!-- "Start time?"   -->
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_height="wrap_content"
-        android:layout_width="match_parent">
-
+        <!-- "Date"   -->
         <TextView
-            android:layout_height="wrap_content"
             android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/newevent_date_label"/>
+            android:text="@string/newevent_date_label" />
 
         <TextView
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
-            android:text="@string/newevent_date_first"
-            android:layout_gravity="end"
             android:id="@+id/newevent_startTime"
-            android:onClick="showTimePickerDialog"/>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_height="wrap_content"
-        android:layout_width="match_parent">
-
-        <TextView
-            android:layout_height="wrap_content"
             android:layout_width="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/newevent_date_label"/>
-
-        <TextView
             android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
-            android:text="@string/newevent_date_first"
             android:layout_gravity="end"
+            android:onClick="showTimePickerDialog"
+            android:text="@string/newevent_date_first" />
+
+        <!-- "Start Time"   -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Start time?" />
+
+        <TextView
             android:id="@+id/newevent_date"
-            android:onClick="showDatePickerDialog"/>
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:onClick="showDatePickerDialog"
+            android:text="@string/newevent_date_first" />
+
+        <!-- "End Time"   -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="End Time" />
+
+        <TextView
+            android:id="@+id/newevent_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:onClick="showDatePickerDialog"
+            android:text="@string/newevent_date_first" />
+
+        <!-- "Add Event Button"   -->
+        <!-- TODO: "ADD EVENT" button here   -->
 
     </LinearLayout>
-
 
 </RelativeLayout>
 

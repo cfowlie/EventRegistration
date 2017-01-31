@@ -8,7 +8,7 @@
     <string name="newevent_date_label">Date?</string>
     <string name="newevent_start_time_label">Start time?</string>
     <string name="newevent_end_time_label">End time?</string>
-
+    <string name="newregister_hint">Event?</string>
 
 
 </resources>
