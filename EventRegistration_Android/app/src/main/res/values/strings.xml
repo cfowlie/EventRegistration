@@ -11,6 +11,7 @@
     <string name="newevent_button">Add Event</string>
     <string name="participantspinner_label">Participant?</string>
     <string name="eventspinner_label">Event?</string>
+    <string name="newevent_name_hint">Event name?</string>
 
 
 </resources>

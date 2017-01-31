@@ -1,6 +1,8 @@
 package ca.mcgill.ecse321.eventregistration_android;
 
 import android.os.Bundle;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -11,6 +13,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import ca.mcgill.ecse321.eventregistration.controller.EventRegistrationController;
+import ca.mcgill.ecse321.eventregistration.model.Participant;
 import ca.mcgill.ecse321.eventregistration.model.RegistrationManager;
 import ca.mcgill.ecse321.eventregistration.persistence.PersistenceXStream;
 import ca.mcgill.ecse321.eventregistration.controller.InvalidInputException;
@@ -47,7 +50,8 @@ public class MainActivity extends AppCompatActivity {
         tv.setText("");
         // Initialize the data in the participant spinner
         Spinner spinner = (Spinner) findViewById(R.id.participantspinner);
-        ArrayAdapter<CharSequence> participantAdapter = new ArrayAdapter<CharSequence>(this, android.R.layout.simple_spinner_item);
+        ArrayAdapter<CharSequence> participantAdapter = new ArrayAdapter<CharSequence>(this, android.
+                R.layout.simple_spinner_item);
         participantAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
         for (Participant p: rm.getParticipants() ) {
@@ -76,6 +80,33 @@ public class MainActivity extends AppCompatActivity {
         refreshData();
 
     }
+
+
+    //Create event has the following:
+    // createEvent( String name, Date date, Time startTime, Time endTime)
+    //Should I create another textview object?a
+    public void addEvent(View v) {
+
+        TextView tv = (TextView) findViewById(R.id.newevent_name_add);
+
+        EventRegistrationController pc = new EventRegistrationController(rm);
+
+        try {
+
+            pc.createEvent(tv.getText().toString(), );
+
+        } catch (InvalidInputException e) {
+
+            error = e.getMessage();
+
+        }
+
+        refreshData();
+
+    }
+
+
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will

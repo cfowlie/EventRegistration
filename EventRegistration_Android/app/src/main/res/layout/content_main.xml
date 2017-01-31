@@ -91,6 +91,13 @@
             android:onClick="addParticipant"
             android:text="@string/newparticipant_button" />
 
+        <!-- Fill in new event name   -->
+        <EditText
+            android:id="@+id/newevent_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/newevent_name_hint" />
+
         <!-- "Date"   -->
         <LinearLayout
             android:orientation="horizontal"
@@ -156,6 +163,7 @@
 
         <!-- "Add Event Button"   -->
         <Button
+            android:id="@+id/newevent_name_add"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="end"

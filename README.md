@@ -32,4 +32,6 @@ Android Project for event registration application
 ### Known Bugs:
 
 ### Tutorial Notes:
-- In 2.7 Step 8 application does not run on Target. Tried following error messages.
+- In Main_Activity.java Spinner code unrecognized. See refreshData() Will try to implement later
+See:
+ src/main/java/ca/mcgill/ecse321/eventregistration_android/
