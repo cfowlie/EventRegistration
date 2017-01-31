@@ -14,6 +14,34 @@
     tools:showIn="@layout/activity_main"
     tools:context="ca.mcgill.ecse321.eventregistration_android.MainActivity">
 
+    <!-- Includes register button -->!
+    <View
+        android:layout_height="2dp"
+        android:layout_width="fill_parent"
+        android:background="#FFFFFF"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/newregister_name_name"
+            android:hint="@string/newparticipant_hint"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:text="@string/newregister_button"
+            android:onClick="Register"/>
+    </LinearLayout>
+
+    <!-- This is for "Who?" section, includes "Add Participant" -->!
+
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -32,4 +60,77 @@
             android:text="@string/newparticipant_button"
             android:onClick="addParticipant"/>
     </LinearLayout>
+
+    <!-- This is for "Event name?" section, includes "Date?" "Start time?" "End time and
+    "Add event" button -->!
+
+    <!-- "Date?"   -->
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent">
+
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/newevent_date_label"/>
+
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="@string/newevent_date_first"
+            android:layout_gravity="end"
+            android:id="@+id/newevent_date"
+            android:onClick="showDatePickerDialog"/>
+
+    </LinearLayout>
+
+    <!-- "Start time?"   -->
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent">
+
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/newevent_date_label"/>
+
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="@string/newevent_date_first"
+            android:layout_gravity="end"
+            android:id="@+id/newevent_startTime"
+            android:onClick="showTimePickerDialog"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent">
+
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/newevent_date_label"/>
+
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="@string/newevent_date_first"
+            android:layout_gravity="end"
+            android:id="@+id/newevent_date"
+            android:onClick="showDatePickerDialog"/>
+
+    </LinearLayout>
+
+
 </RelativeLayout>
+
+
+
