@@ -7,31 +7,37 @@ https://github.com/cfowlie/EventRegistration
 - Connor Fowlie :  260687955
 - Yaniv Bronshtein : 260618099
 
-### Documentation
+## Documentation
 All Class and Domain Models for the assignment
 
-### EventRegistation
+## EventRegistation
 Java Eclipse Project for the assignment
 
-### EventRegistration_Android
-Android Project for event registration application
+#### Setup:
+- Add the JUnit 4 library to your build path. Right click on the project 
+and Build Path | Add libraries…​, select JUnit and click Next and then Finish.
+- Add the JAR files from the lib folder to the build path of the project. 
+Right click on the three files and Build path | Add to build path
 
-### Plugins:
-- Umple Plugin : http://cruise.eecs.uottawa.ca/umple/
-- Junit : http://junit.org/junit4/
-- Libraries : 
+#### Libraries : 
 	- xstream-1.4.7.jar
 	- xmlpull-1.1.3.1.jar
 	- xpp3_min-1.1.4c.jar
 	- jdatepicker-1.3.4.jar
 
-### Setup:
-- Add the JUnit 4 library to your build path. Right click on the project and Build Path | Add libraries…​, select JUnit and click Next and then Finish.
-- Add the JAR files from the lib folder to the build path of the project. Right click on the three files and Build path | Add to build path
+## EventRegistration_Android
+Android Project for event registration application
 
-### Known Bugs:
+#### Libraries : 
+	- eventregistration.jar
 
-### Tutorial Notes:
-- In Main_Activity.java Spinner code unrecognized. See refreshData() Will try to implement later
-See:
- src/main/java/ca/mcgill/ecse321/eventregistration_android/
+## EventRegistration_Android
+PHP Web Project for event registration application
+
+## Plugins:
+- Umple Plugin : http://cruise.eecs.uottawa.ca/umple/
+- JUnit : http://junit.org/junit4/
+- PHPUnit: https://phpunit.de/
+
+
+
