@@ -23,6 +23,23 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
+
+        <!--"Error Messages" -->
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent">
+
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="@error message"/>
+            android:textColor= "@color/translucent_red"
+
+    </LinearLayout>
+
+
+
         <!-- "Event"   -->
 
         <!-- Participant Spinner-->
