@@ -12,7 +12,11 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import java.sql.Date;
+import java.sql.Time;
+
 import ca.mcgill.ecse321.eventregistration.controller.EventRegistrationController;
+import ca.mcgill.ecse321.eventregistration.model.Event;
 import ca.mcgill.ecse321.eventregistration.model.Participant;
 import ca.mcgill.ecse321.eventregistration.model.RegistrationManager;
 import ca.mcgill.ecse321.eventregistration.persistence.PersistenceXStream;
@@ -48,6 +52,7 @@ public class MainActivity extends AppCompatActivity {
     private void refreshData() {
         TextView tv = (TextView) findViewById(R.id.newparticipant_name);
         tv.setText("");
+
         // Initialize the data in the participant spinner
         Spinner spinner = (Spinner) findViewById(R.id.participantspinner);
         ArrayAdapter<CharSequence> participantAdapter = new ArrayAdapter<CharSequence>(this, android.
@@ -58,6 +63,19 @@ public class MainActivity extends AppCompatActivity {
             participantAdapter.add(p.getName());
         }
         spinner.setAdapter(participantAdapter);
+
+        //Initialize data in event spinner
+        Spinner eventSpinner = (Spinner) findViewById(R.id.eventspinner);
+        ArrayAdapter<CharSequence> eventAdapter = new ArrayAdapter<CharSequence>(this, android.
+                R.layout.simple_spinner_item);
+        eventAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+        for (Event e: rm.getEvents() ) {
+            participantAdapter.add(e.getName());
+        }
+        eventSpinner.setAdapter(participantAdapter);
+
+
 
     }
 
@@ -82,28 +100,45 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    //Create event has the following:
-    // createEvent( String name, Date date, Time startTime, Time endTime)
-    //Should I create another textview object?a
-    public void addEvent(View v) {
 
-        TextView tv = (TextView) findViewById(R.id.newevent_name_add);
 
-        EventRegistrationController pc = new EventRegistrationController(rm);
+    /* Method adds event based on chosen name, date, start time, and end time
+     * Uses id to recover that info and uses Bundles to cast to Date and Time variables
+      * used by method created in tutorial 1 */
+    public void addEvent(View v) {      //String eventName, Time startTime, Time endTime, Date eventDate
 
+        EventRegistrationController ec = new EventRegistrationController(rm);
+
+        TextView tv2 = (TextView) findViewById(R.id.newevent_name); //get event
+        TextView tv3 = (TextView) findViewById(R.id.newevent_date_value); //get date
+        TextView tv4 = (TextView) findViewById(R.id.newevent_start_time_value); //get start time
+        TextView tv5 = (TextView) findViewById(R.id.newevent_end_time_value); //get end time
+
+
+        String eventName = tv2.getText().toString();
+
+        Bundle date = getDateFromLabel(tv3.getText());
+        Bundle startTime= getTimeFromLabel(tv4.getText());
+        Bundle endTime = getTimeFromLabel(tv5.getText());
+
+        /* use bundle methods Date() and Time() to recover individual elements from date and times */
+        Date chosenDate = new Date(date.getInt("year"), date.getInt("month"), date.getInt("day"));
+        Time chosenStartTime =  new Time(startTime.getInt("hour"), startTime.getInt("minute"),
+                startTime.getInt("second"));
+        Time chosenEndTime =  new Time(endTime.getInt("hour"), endTime.getInt("minute"),
+                endTime.getInt("second"));
+
+        /* Check for exceptions */
         try {
-
-            pc.createEvent(tv.getText().toString(), );
-
+            ec.createEvent(eventName,chosenDate,chosenStartTime, chosenEndTime);
         } catch (InvalidInputException e) {
-
-            error = e.getMessage();
-
+            e.printStackTrace();
         }
 
         refreshData();
 
     }
+
 
 
 
@@ -141,6 +176,16 @@ public class MainActivity extends AppCompatActivity {
         DatePickerFragment newFragment = new DatePickerFragment();
         newFragment.setArguments(args);
         newFragment.show(getSupportFragmentManager(), "datePicker");
+    }
+
+    public void showTimePickerDialog(View v) {
+        TextView tf = (TextView) v;
+        Bundle args = getTimeFromLabel(tf.getText());
+        args.putInt("id", v.getId());
+
+        TimePickerFragment newFragment = new TimePickerFragment();
+        newFragment.setArguments(args);
+        newFragment.show(getSupportFragmentManager(), "timePicker");
     }
 
     private Bundle getTimeFromLabel(CharSequence text) {
