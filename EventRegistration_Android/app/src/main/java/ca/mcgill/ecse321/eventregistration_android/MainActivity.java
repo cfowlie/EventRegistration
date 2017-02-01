@@ -47,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
         fileName = getFilesDir().getAbsolutePath() + "/eventregistration.xml";
         rm = PersistenceXStream.initializeModelManager(fileName);
         refreshData();
+
     }
 
     private void refreshData() {
@@ -81,19 +82,26 @@ public class MainActivity extends AppCompatActivity {
 
     public void addParticipant(View v) {
 
+        TextView errorTV = (TextView) findViewById(R.id.error_add_participant);
+
         TextView tv = (TextView) findViewById(R.id.newparticipant_name);
 
         EventRegistrationController pc = new EventRegistrationController(rm);
 
+
         try {
 
             pc.createParticipant(tv.getText().toString());
+            errorTV.setText("");
 
         } catch (InvalidInputException e) {
 
             error = e.getMessage();
 
+            errorTV.setText(error);
+
         }
+
 
 
 
@@ -110,13 +118,14 @@ public class MainActivity extends AppCompatActivity {
       * used by method created in tutorial 1 */
     public void addEvent(View v) {      //String eventName, Time startTime, Time endTime, Date eventDate
 
-        EventRegistrationController ec = new EventRegistrationController(rm);
+        EventRegistrationController pc = new EventRegistrationController(rm);
 
         TextView tv2 = (TextView) findViewById(R.id.newevent_name); //get event
         TextView tv3 = (TextView) findViewById(R.id.newevent_date_value); //get date
         TextView tv4 = (TextView) findViewById(R.id.newevent_start_time_value); //get start time
         TextView tv5 = (TextView) findViewById(R.id.newevent_end_time_value); //get end time
 
+        TextView errorTV = (TextView) findViewById(R.id.error_add_event);  //for error display
 
         String eventName = tv2.getText().toString();
 
@@ -133,14 +142,57 @@ public class MainActivity extends AppCompatActivity {
 
         /* Check for exceptions */
         try {
-            ec.createEvent(eventName,chosenDate,chosenStartTime, chosenEndTime);
+            errorTV.setText("");
+            pc.createEvent(eventName,chosenDate,chosenStartTime, chosenEndTime);
         } catch (InvalidInputException e) {
             e.printStackTrace();
+            error = e.getMessage(); //save error message
+            errorTV.setText(error);  //display error message
         }
 
         refreshData();
 
     }
+
+
+    public void Register(View v) {
+
+        TextView errorTV = (TextView) findViewById(R.id.error_registering); //Textview for
+        // registration errors
+
+
+        TextView tv2 = (TextView) findViewById(R.id.newparticipant_name); //textview for participants
+        TextView tv3 = (TextView) findViewById(R.id.newevent_name); //get event
+
+        EventRegistrationController pc = new EventRegistrationController(rm);
+
+
+        Spinner spinner = (Spinner) findViewById(R.id.participantspinner); //participant spinner object
+        Spinner eventSpinner = (Spinner) findViewById(R.id.eventspinner);  // event spinner object
+
+        try {
+
+            pc.register(rm.getParticipant(spinner.getSelectedItemPosition()),
+                    rm.getEvent(eventSpinner.getSelectedItemPosition()));
+
+            errorTV.setText(""); //initialize error box
+
+        } catch (InvalidInputException e) {
+
+            e.printStackTrace();
+
+            error = e.getMessage(); //save error
+
+            errorTV.setText(error);  //display error
+
+        }
+
+
+        refreshData();
+
+    }
+
+
 
 
 

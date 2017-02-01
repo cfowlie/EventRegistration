@@ -23,4 +23,19 @@
     <string name="newevent_start_time_val">8:00</string>
 
 
+    <!-- Errors -->
+    <!--<string name="default_error"></string>-->
+    <!--<string name="participant_error">Error:Please choose or enter a participant</string>-->
+    <!--<string name="event_name_error">Error:Please choose or enter an event</string>-->
+    <!--<string name="event_date_error">Error:Please choose or enter an event date</string>-->
+    <!--<string name="event_start_time_error">Error:Please choose or enter a start time</string>-->
+    <!--<string name="event_end_time_error">Error:Please choose or enter an end time</string>-->
+    <!--<string name="event_time_error">Error:Start Time cannot come after end time</string>-->
+    <!--<string name="event_registration_error1">Error:Participant needs to be selected for registration! </string>-->
+    <!--<string name="event_registration_error2">Error:Participant does not exist!</string>-->
+    <!--<string name="event_registration_error3">Error:Event does not exist!</string>-->
+
+
+
+
 </resources>

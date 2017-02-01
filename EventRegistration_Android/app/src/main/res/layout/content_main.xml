@@ -24,19 +24,55 @@
         android:orientation="vertical">
 
 
-        <!--"Error Messages" -->
+        <!--Error Messages for Adding Participants -->
     <LinearLayout
         android:orientation="horizontal"
         android:layout_height="wrap_content"
         android:layout_width="match_parent">
 
         <TextView
+            android:id="@+id/error_add_participant"
             android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
-            android:text="@error message"/>
-            android:textColor= "@color/translucent_red"
+            android:layout_width="match_parent"
+            android:text=""
+            android:textColor="#0EFFFF" />
+
 
     </LinearLayout>
+
+        <!--Error Messages for Adding Event -->
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent">
+
+            <TextView
+                android:id="@+id/error_add_event"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:textColor="#FFFF4444"
+                android:text="" />
+
+
+        </LinearLayout>
+
+        <!--Error Messages for Registering -->
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent">
+
+            <TextView
+                android:id="@+id/error_registering"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:text=""
+                android:textColor="#FF99CC00" />
+
+
+        </LinearLayout>
+
+
 
 
 
