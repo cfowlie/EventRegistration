@@ -122,6 +122,7 @@
             <!--android:layout_height="wrap_content"-->
             <!--android:hint="@string/newregister_hint" />-->
 
+        <!--Register button -->
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

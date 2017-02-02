@@ -55,31 +55,33 @@ public class MainActivity extends AppCompatActivity {
         tv.setText("");
 
         // Initialize the data in the participant spinner
-        Spinner spinner = (Spinner) findViewById(R.id.participantspinner);
+        Spinner participantSpinner = (Spinner) findViewById(R.id.participantspinner);
         ArrayAdapter<CharSequence> participantAdapter = new ArrayAdapter<CharSequence>(this, android.
                 R.layout.simple_spinner_item);
-        participantAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        participantAdapter.setDropDownViewResource(android.R.layout.simple_spinner_item);
 
         for (Participant p: rm.getParticipants() ) {
             participantAdapter.add(p.getName());
         }
-        spinner.setAdapter(participantAdapter);
+        participantSpinner.setAdapter(participantAdapter);
 
         //Initialize data in event spinner
         Spinner eventSpinner = (Spinner) findViewById(R.id.eventspinner);
         ArrayAdapter<CharSequence> eventAdapter = new ArrayAdapter<CharSequence>(this, android.
                 R.layout.simple_spinner_item);
-        eventAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        eventAdapter.setDropDownViewResource(android.R.layout.simple_spinner_item);
 
         for (Event e: rm.getEvents() ) {
-            participantAdapter.add(e.getName());
+            eventAdapter.add(e.getName());
         }
-        eventSpinner.setAdapter(participantAdapter);
+        eventSpinner.setAdapter(eventAdapter);
 
 
 
     }
 
+    /* Method invokes createParticipant() method form jar file and displays error messages
+     * based on results of the try-catch block */
     public void addParticipant(View v) {
 
         TextView errorTV = (TextView) findViewById(R.id.error_add_participant);
@@ -167,13 +169,13 @@ public class MainActivity extends AppCompatActivity {
         EventRegistrationController pc = new EventRegistrationController(rm);
 
 
-        Spinner spinner = (Spinner) findViewById(R.id.participantspinner); //participant spinner object
+        Spinner participantSpinner = (Spinner) findViewById(R.id.participantspinner); //participant spinner object
         Spinner eventSpinner = (Spinner) findViewById(R.id.eventspinner);  // event spinner object
 
+        /* Use registration manager object to invoke getParticipant() and getEvent() to satisfy
+         * parameter list of register  */
         try {
-
-            pc.register(rm.getParticipant(spinner.getSelectedItemPosition()),
-                    rm.getEvent(eventSpinner.getSelectedItemPosition()));
+            pc.register(rm.getParticipant(participantSpinner.getSelectedItemPosition()), rm.getEvent(eventSpinner.getSelectedItemPosition()));
 
             errorTV.setText(""); //initialize error box
 
